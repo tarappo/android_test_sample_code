@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.tarappo.androidtestsamplecode"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.tarappo.androidtestsamplecode"
@@ -39,16 +39,9 @@ android {
     buildFeatures {
         compose = true
     }
-
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform() // ←JUnit5を使うため必須
-        }
-    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -64,4 +57,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+
+    // (Optional) If you need "Parameterized Tests"
+    testImplementation(libs.junit.jupiter.params)
+
+    // (Optional) If you also have JUnit 4-based tests
+    testImplementation(libs.junit)
+    testRuntimeOnly(libs.junit.vintage.engine)
 }
