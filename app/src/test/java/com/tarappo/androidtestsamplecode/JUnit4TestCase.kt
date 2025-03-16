@@ -1,9 +1,10 @@
 package com.tarappo.androidtestsamplecode
 
-import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class JUnit5TestCaase {
+import org.junit.Assert.*
+
+class JUnit4TestCase {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
