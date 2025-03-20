@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 
     id("de.mannodermaus.android-junit5")
+    id("tech.apter.junit5.jupiter.robolectric-extension-gradle-plugin") version ("0.9.0")
 }
 
 android {
@@ -68,4 +69,12 @@ dependencies {
     // (Optional) If you also have JUnit 4-based tests
     testImplementation(libs.junit)
     testRuntimeOnly(libs.junit.vintage.engine)
+
+    // Instrumented Test
+    androidTestImplementation(libs.ui.test.junit4)
+
+    // Unit Test
+    testImplementation((libs.ui.test.junit4))
+    testImplementation(libs.ui.test.manifest)
+    debugImplementation(libs.ui.test.manifest)
 }
