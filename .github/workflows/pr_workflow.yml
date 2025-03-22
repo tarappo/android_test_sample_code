@@ -29,10 +29,9 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest
-      - name: Upload Test Report (if tests fail)
+        run: ./gradlew testDebugUnitTest --console=verbose
+      - name: Upload Test Report
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        if: failure()
         with:
           name: unit-test-report
           path: app/build/reports/tests/testDebugUnitTest/
