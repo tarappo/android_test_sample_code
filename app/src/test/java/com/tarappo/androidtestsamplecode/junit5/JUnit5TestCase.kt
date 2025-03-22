@@ -1,4 +1,4 @@
-package com.tarappo.androidtestsamplecode
+package com.tarappo.androidtestsamplecode.junit5
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
