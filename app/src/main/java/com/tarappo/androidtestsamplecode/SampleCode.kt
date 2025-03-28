@@ -5,7 +5,7 @@ import androidx.core.content.edit
 
 object ToastUtil {
     fun showShortToast(context: Context, message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message + "Toast", Toast.LENGTH_SHORT).show()
     }
 }
 

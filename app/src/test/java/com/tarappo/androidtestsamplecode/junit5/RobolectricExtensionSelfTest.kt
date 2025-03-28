@@ -5,6 +5,9 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.tarappo.androidtestsamplecode.PreferenceUtil
 import com.tarappo.androidtestsamplecode.ToastUtil
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.TestDispatcher
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
@@ -18,21 +21,30 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowToast
 import tech.apter.junit.jupiter.robolectric.RobolectricExtension
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 
 @ExtendWith(RobolectricExtension::class)
 @Config(application = RobolectricExtensionSelfTest.MyTestApplication::class)
+@OptIn(ExperimentalCoroutinesApi::class) // UnconfinedTestDispatcher用
 class RobolectricExtensionSelfTest {
     private lateinit var context: Context
     private lateinit var preferenceUtil: PreferenceUtil
+    private lateinit var dispatcher: TestDispatcher
 
     @BeforeEach
     fun setUp() {
+        dispatcher = UnconfinedTestDispatcher()
+        Dispatchers.setMain(dispatcher)
+
         context = RuntimeEnvironment.getApplication()
         preferenceUtil = PreferenceUtil(context)
     }
 
     @AfterEach
     fun tearDown() {
+        Dispatchers.resetMain()
     }
 
     @Test
@@ -47,13 +59,13 @@ class RobolectricExtensionSelfTest {
     @DisplayName("Toastに対するテスト")
     fun toastTest() {
         val context = RuntimeEnvironment.getApplication()
-        val expectedMessage = "Hello from Robolectric JUnit5!"
+        val message = "Hello from Robolectric JUnit5"
 
-        ToastUtil.showShortToast(context, expectedMessage)
+        ToastUtil.showShortToast(context, message)
 
         // Toastによるメッセージ表示を仮想的にテストするためのもの
         val actualToast = ShadowToast.getTextOfLatestToast()
-        assertEquals(expectedMessage, actualToast)
+        assertEquals(message + "Toast", actualToast)
     }
 
     @Test
