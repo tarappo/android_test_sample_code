@@ -72,6 +72,7 @@ class RobolectricExtensionSelfTest {
         assertNull(savedName)
     }
 
+
     // サンプルコード
     class MyTestApplication : Application() {
         internal var onCreateWasCalled = false

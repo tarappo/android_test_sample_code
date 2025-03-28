@@ -43,6 +43,7 @@ class RobolectricExtensionSelfTest {
 
         ToastUtil.showShortToast(context, expectedMessage)
 
+        // Toastによるメッセージ表示を仮想的にテストするためのもの
         val actualToastMessage = ShadowToast.getTextOfLatestToast()
         assertEquals(expectedMessage, actualToastMessage)
     }
