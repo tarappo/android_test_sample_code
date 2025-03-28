@@ -9,6 +9,7 @@ import org.junit.Test
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.jupiter.api.Assertions
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
@@ -39,13 +40,13 @@ class RobolectricExtensionSelfTest {
     @Test
     fun showShortToast_displaysCorrectMessage() {
         val context = RuntimeEnvironment.getApplication()
-        val expectedMessage = "JUnit4 test message"
+        val message = "Hello from Robolectric JUnit4"
 
-        ToastUtil.showShortToast(context, expectedMessage)
+        ToastUtil.showShortToast(context, message)
 
         // Toastによるメッセージ表示を仮想的にテストするためのもの
-        val actualToastMessage = ShadowToast.getTextOfLatestToast()
-        assertEquals(expectedMessage, actualToastMessage)
+        val actualToast = ShadowToast.getTextOfLatestToast()
+        Assertions.assertEquals(message + "Toast", actualToast)
     }
 
     @Test
