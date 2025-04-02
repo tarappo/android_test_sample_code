@@ -2,6 +2,7 @@ package com.tarappo.androidtestsamplecode.junit4
 
 import android.app.Application
 import android.content.Context
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.tarappo.androidtestsamplecode.PreferenceUtil
 import com.tarappo.androidtestsamplecode.ToastUtil
 import org.junit.Before
@@ -11,12 +12,11 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.jupiter.api.Assertions
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowToast
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(AndroidJUnit4::class)
 @Config(application = RobolectricExtensionSelfTest.MyTestApplication::class)
 class RobolectricExtensionSelfTest {
     private lateinit var context: Context
