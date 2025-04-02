@@ -1,4 +1,4 @@
-package com.tarappo.androidtestsamplecode
+package com.tarappo.androidtestsamplecode.junit4
 
 import org.junit.Test
 
