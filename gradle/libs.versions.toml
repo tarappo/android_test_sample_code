@@ -15,6 +15,8 @@ composeBom = "2025.03.01"
 uiTestJunit4 = "1.7.8"
 uiTestManifest = "1.7.8"
 appcompat = "1.7.0"
+androidxJunit = "1.1.5"
+junitKtx = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +40,8 @@ junit-vintage-engine = { module = "org.junit.vintage:junit-vintage-engine", vers
 ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifest" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
