@@ -6,3 +6,4 @@ plugins {
 
     id("de.mannodermaus.android-junit5") version "1.11.0.0" apply false
 }
+

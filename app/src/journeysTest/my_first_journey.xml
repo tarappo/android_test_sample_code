@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!-- @formatter:off -->
+<journey name="My first Journey">
+    <description>最初のテスト</description>
+    <actions>
+        <action>クラッシュボタンをおしてください</action><action>数字を増やすボタンを3回押して、その後に数字を減らすボタンを2回おしてください。
+</action>
+        <action>数字が1になっていることを確認してください。</action><action>リセットボタンをおしてください</action><action>数字が0になっていて、数字を減らすボタンを押せないことを確認してください</action><action>数字を増やすボタンを1回以上押して、遷移するページのボタンが押せるようになっていることを確認してください</action><action>遷移するページボタンを押して、今のページで表示されている数字が遷移先のページで表示されていることを確認してください</action>
+        </actions>
+</journey>
